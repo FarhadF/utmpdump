@@ -5,9 +5,9 @@ utmpdump can be scheduled (wont hold duplicate records in dump file.
 
 Build steps:
 
-1. Clone the repository in your $GOPATH/src/
-2. go build utmpdump.go
-3. ./utmpdump
+1. Clone the repository in your `$GOPATH/src/`
+2. `go build utmpdump.go`
+3. `./utmpdump`
 
 
 ```
