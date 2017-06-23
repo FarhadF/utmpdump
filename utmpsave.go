@@ -13,7 +13,7 @@
 
 package main
 
-import "utmpdump/cmd"
+import "utmpsave/cmd"
 
 func main() {
 	cmd.Execute()

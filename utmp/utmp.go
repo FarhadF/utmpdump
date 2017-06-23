@@ -106,7 +106,7 @@ func AddrToString(a [4]int32) string {
 	return fmt.Sprintf("%d.%d.%d.%d", byte(a[0]), byte(a[0]>>8), byte(a[0]>>16), byte(a[0]>>24))
 }
 
-func UtmpDump(source string, destination string) {
+func UtmpSave(source string, destination string) {
 	file, err := os.Open(source)
 	if err != nil {
 		log.Fatal(err)

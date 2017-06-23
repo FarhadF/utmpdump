@@ -21,7 +21,7 @@ import (
 	"log"
 	"os"
 	"strings"
-	"utmpdump/utmp"
+	"utmpsave/utmp"
 )
 
 var (
@@ -32,10 +32,10 @@ var (
 
 // RootCmd represents the base command when called without any subcommands
 var RootCmd = &cobra.Command{
-	Use:   "utmpdump",
+	Use:   "utmpsave",
 	Short: "Dumps linux lastlog into a human readable file",
 	Long: `Dumps linux lastlog into a human readable file.
-Can be scheduled, utmpdump will not store duplicate records.`,
+Can be scheduled, utmpsave will not store duplicate records.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	Run: rootCmd,
@@ -43,9 +43,9 @@ Can be scheduled, utmpdump will not store duplicate records.`,
 
 func rootCmd(cmd *cobra.Command, args []string) {
 	if versionFlag := getFlagBoolPtr(cmd, "version"); versionFlag != nil {
-		fmt.Println("utmpdump v1.0.0")
+		fmt.Println("utmpsave v1.0.0")
 	} else {
-		utmp.UtmpDump(source, destination)
+		utmp.UtmpSave(source, destination)
 	}
 }
 
@@ -89,7 +89,7 @@ func init() {
 	// when this action is called directly.
 	RootCmd.Flags().BoolP("version", "v", false, "Prints version info")
 	RootCmd.Flags().StringVarP(&source, "source", "s", "/var/log/wtmp", "Source wtmp file path")
-	RootCmd.Flags().StringVarP(&destination, "destination", "d", "/tmp/utmpdump.dmp", "Destination dump file path")
+	RootCmd.Flags().StringVarP(&destination, "destination", "d", "/tmp/utmpsave.dmp", "Destination dump file path")
 }
 
 // initConfig reads in config file and ENV variables if set.
@@ -107,7 +107,7 @@ func initConfig() {
 
 		// Search config in home directory with name ".utmpdump" (without extension).
 		viper.AddConfigPath(home)
-		viper.SetConfigName(".utmpdump")
+		viper.SetConfigName(".utmpsave")
 	}
 
 	viper.AutomaticEnv() // read in environment variables that match
