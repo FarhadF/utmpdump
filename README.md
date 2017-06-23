@@ -1,18 +1,18 @@
-# utmpdump
+# utmpsave
 Dumps linux lastlog into a human readable file. 
 Written in pure go, with no bash forking makes it efficient and blazing fast.
-utmpdump can be scheduled (wont hold duplicate records in dump file.
+utmpsave can be scheduled. (won't hold duplicate records in dump file)
 
 Build steps:
 
 1. Clone the repository in your `$GOPATH/src/`
-2. `go build utmpdump.go`
-3. `./utmpdump`
+2. `go build utmpsave.go`
+3. `./utmpsave`
 
 
 ```
 Usage:
-  utmpdump [flags]
+  utmpsave [flags]
 
 Flags:
   -d, --destination string   Destination dump file path (default "/tmp/utmpdump.dmp")
